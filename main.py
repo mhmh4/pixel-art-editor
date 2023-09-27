@@ -1,9 +1,14 @@
 # Example file showing a basic pygame "game loop"
 import pygame
 
+SCREEN_WIDTH = 500
+SCREEN_HEIGHT = 500
+
+PIXEL_SIZE = 25
+
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 running = True
 
