@@ -7,6 +7,28 @@ SCREEN_HEIGHT = 500
 PIXEL_SIZE = 25
 
 
+class Canvas:
+    def __init__(self, width, height, pixel_size):
+        self.width = width
+        self.height = height
+        self.pixel_size = pixel_size
+
+        self.pixels = [
+            ["#ffffff" for _ in range(self.height // self.pixel_size)]
+            for _ in range(self.width // self.pixel_size)
+        ]
+
+    def draw(self):
+        for x in range(0, self.width, self.pixel_size):
+            for y in range(0, self.height, self.pixel_size):
+                pygame.draw.rect(
+                    screen,
+                    "gray",
+                    pygame.Rect(x, y, self.pixel_size, self.pixel_size),
+                    1,
+                )
+
+
 def draw_canvas(screen):
     for x in range(0, SCREEN_WIDTH, PIXEL_SIZE):
         for y in range(0, SCREEN_HEIGHT, PIXEL_SIZE):
