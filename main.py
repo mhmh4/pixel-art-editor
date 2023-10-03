@@ -18,7 +18,7 @@ class Canvas:
             for _ in range(self.width // self.pixel_size)
         ]
 
-    def draw(self):
+    def draw(self, screen):
         for x in range(0, self.width, self.pixel_size):
             for y in range(0, self.height, self.pixel_size):
                 pygame.draw.rect(
@@ -48,7 +48,7 @@ while running:
     screen.fill("white")
 
     # RENDER YOUR GAME HERE
-    canvas.draw()
+    canvas.draw(screen)
 
     # flip() the display to put your work on screen
     pygame.display.flip()
