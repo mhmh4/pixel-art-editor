@@ -29,19 +29,13 @@ class Canvas:
                 )
 
 
-def draw_canvas(screen):
-    for x in range(0, SCREEN_WIDTH, PIXEL_SIZE):
-        for y in range(0, SCREEN_HEIGHT, PIXEL_SIZE):
-            pygame.draw.rect(
-                screen, "gray", pygame.Rect(x, y, PIXEL_SIZE, PIXEL_SIZE), 1
-            )
-
-
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 running = True
+
+canvas = Canvas(200, 300, 25)
 
 while running:
     # poll for events
@@ -54,7 +48,7 @@ while running:
     screen.fill("white")
 
     # RENDER YOUR GAME HERE
-    draw_canvas(screen)
+    canvas.draw()
 
     # flip() the display to put your work on screen
     pygame.display.flip()
