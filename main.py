@@ -14,8 +14,8 @@ class Canvas:
         self.pixel_size = pixel_size
 
         self.pixels = [
-            ["#ffffff" for _ in range(self.height // self.pixel_size)]
-            for _ in range(self.width // self.pixel_size)
+            ["#ffffff" for _ in range(self.width // self.pixel_size)]
+            for _ in range(self.height // self.pixel_size)
         ]
 
     def draw(self, screen):
