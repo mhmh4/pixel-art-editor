@@ -19,14 +19,22 @@ class Canvas:
         ]
 
     def draw(self, screen):
-        for x in range(0, self.width, self.pixel_size):
-            for y in range(0, self.height, self.pixel_size):
+        x = 0
+        y = 0
+        for row in self.pixels:
+            x = 0
+            for color in row:
+                pygame.draw.rect(
+                    screen, color, pygame.Rect(x, y, self.pixel_size, self.pixel_size)
+                ),
                 pygame.draw.rect(
                     screen,
                     "gray",
                     pygame.Rect(x, y, self.pixel_size, self.pixel_size),
                     1,
-                )
+                ),
+                x += self.pixel_size
+            y += self.pixel_size
 
 
 # pygame setup
