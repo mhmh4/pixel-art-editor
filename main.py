@@ -36,6 +36,11 @@ class Canvas:
                 x += self.pixel_size
             y += self.pixel_size
 
+    def fill(self, pos):
+        i = pos[1] // self.pixel_size
+        j = pos[0] // self.pixel_size
+        self.pixels[i][j] = "#000000"
+
 
 # pygame setup
 pygame.init()
@@ -51,6 +56,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.MOUSEBUTTONUP:
+            pos = pygame.mouse.get_pos()
+            canvas.fill(pos)
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("white")
