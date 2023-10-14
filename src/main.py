@@ -53,30 +53,34 @@ def run():
 
     canvas = Canvas(200, 300, 25)
 
-    while running:
-        # poll for events
-        # pygame.QUIT event means the user clicked X to close your window
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+    try:
+        while running:
+            # poll for events
+            # pygame.QUIT event means the user clicked X to close your window
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
 
-        mouse_state = pygame.mouse.get_pressed()
-        if mouse_state[0]:
-            pos = pygame.mouse.get_pos()
-            canvas.fill(pos)
+            mouse_state = pygame.mouse.get_pressed()
+            if mouse_state[0]:
+                pos = pygame.mouse.get_pos()
+                canvas.fill(pos)
 
-        # fill the screen with a color to wipe away anything from last frame
-        screen.fill("white")
+            # fill the screen with a color to wipe away anything from last frame
+            screen.fill("white")
 
-        # RENDER YOUR GAME HERE
-        canvas.draw(screen)
+            # RENDER YOUR GAME HERE
+            canvas.draw(screen)
 
-        # flip() the display to put your work on screen
-        pygame.display.flip()
+            # flip() the display to put your work on screen
+            pygame.display.flip()
 
-        clock.tick(60)  # limits FPS to 60
-
-    pygame.quit()
+            clock.tick(60)  # limits FPS to 60
+    except KeyboardInterrupt:
+        print()
+        pass
+    finally:
+        pygame.quit()
 
 
 if __name__ == "__main__":
