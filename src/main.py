@@ -39,6 +39,8 @@ class Canvas:
     def fill(self, pos):
         i = pos[1] // self.pixel_size
         j = pos[0] // self.pixel_size
+        if i < 0 or i >= len(self.pixels) or j < 0 or j >= len(self.pixels[0]):
+            return
         self.pixels[i][j] = "#000000"
 
 
