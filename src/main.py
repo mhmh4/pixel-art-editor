@@ -56,9 +56,11 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            pos = pygame.mouse.get_pos()
-            canvas.fill(pos)
+
+    mouse_state = pygame.mouse.get_pressed()
+    if mouse_state[0]:
+        pos = pygame.mouse.get_pos()
+        canvas.fill(pos)
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("white")
