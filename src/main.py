@@ -3,7 +3,9 @@ import pygame
 SCREEN_WIDTH = 500
 SCREEN_HEIGHT = 500
 
-PIXEL_SIZE = 25
+CANVAS_WIDTH = 200
+CANVAS_HEIGHT = 300
+CANVAS_PIXEL_SIZE = 25
 
 
 class Canvas:
@@ -49,7 +51,7 @@ def run():
     clock = pygame.time.Clock()
     running = True
 
-    canvas = Canvas(200, 300, 25)
+    canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT, CANVAS_PIXEL_SIZE)
 
     try:
         while running:
