@@ -45,6 +45,21 @@ class Canvas:
         self.pixels[i][j] = "#000000"
 
 
+class ColorPicker:
+    COLOR_PREVIEW_SIZE = 20
+
+    def __init__(self):
+        self.colors = ["black", "red", "blue", "green"]
+
+    def draw(self, screen):
+        x = 0
+        for color in self.colors:
+            pygame.draw.rect(
+                screen, color, pygame.Rect(x, CANVAS_HEIGHT, self.COLOR_PREVIEW_SIZE, self.COLOR_PREVIEW_SIZE)
+            )
+            x += self.COLOR_PREVIEW_SIZE
+
+
 def run():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -52,6 +67,7 @@ def run():
     running = True
 
     canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT, CANVAS_PIXEL_SIZE)
+    color_picker = ColorPicker()
 
     try:
         while running:
@@ -67,6 +83,7 @@ def run():
             screen.fill("white")
 
             canvas.draw(screen)
+            color_picker.draw(screen)
 
             pygame.display.flip()
 
